@@ -53,11 +53,28 @@ document.querySelectorAll(".complete-btn").forEach(button => {
     console.log(event);
     button.disabled = true;
     button.classList.add('cursor-not-allowed', 'opacity-50');
+    
     const alertBox = document.getElementById("custom-alert");
     alertBox.classList.remove("hidden");
-    setTimeout(() => {
-      alertBox.classList.add("hidden");
-    }, 3000);
+    document.getElementById("alert-btn").addEventListener("click", function() {
+        alertBox.classList.add("hidden");
+
+        if (assignedTask === 0) {
+          const secondAlert = document.createElement("div");
+          secondAlert.setAttribute("role", "alert");
+          secondAlert.className = "alert alert-info alert-soft fixed top-5 right-5 px-4 py-3 rounded shadow-lg text-lg p-5";
+          secondAlert.innerHTML = `<span>Congrats! No more tasks left!</span>`;
+    
+          document.body.appendChild(secondAlert);
+    
+          setTimeout(() => {
+            secondAlert.remove(); // Hide the second alert after a few seconds
+          }, 3000);
+        }
+    })
+    // setTimeout(() => {
+    //   alertBox.classList.add("hidden");
+    // }, 3000);
 
     let assignedTask = parseInt(document.getElementById('assigned-task').textContent);
     if (assignedTask > 0) assignedTask--;
