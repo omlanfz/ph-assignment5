@@ -1,3 +1,5 @@
+// Home page
+
 const colors = ["bg-[#F4F7FF]", "bg-blue-200", "bg-green-200", "bg-yellow-200", "bg-red-200", "bg-purple-200"];
 let currentIndex = 0;
 
@@ -95,3 +97,7 @@ document.querySelectorAll(".complete-btn").forEach(button => {
 document.querySelector('#clear-btn').addEventListener("click", function () {
   document.getElementById("messagesContainer").innerHTML = '';
 });
+
+
+// Blog page
+
